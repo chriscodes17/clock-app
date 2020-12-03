@@ -18,8 +18,9 @@ const timeApi = function () {
     const dayYear = document.querySelector('.day-year');
     const dayWeek = document.querySelector('.day-week');
     const weekNum = document.querySelector('.week-num');
+    cont proxyUrl = 'https://cors-anywhere.herokuapp.com/',
     const API_URL = 'https://worldtimeapi.org/api/ip';
-    fetch(API_URL)
+    fetch(proxyUrl + API_URL)
         .then(function (res) {
             const processingRes = res.json();
             return processingRes;
