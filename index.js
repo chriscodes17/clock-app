@@ -2,7 +2,7 @@
 const quoteApi = function () {
     const quoteText = document.querySelector('.quote-text');
     const quoteAuthor = document.querySelector('.quote-author');
-    const API_URL = 'http://api.quotable.io/random';
+    const API_URL = 'https://api.quotable.io/random';
     fetch(API_URL)
         .then(function (res) {
             const processingRes = res.json();
