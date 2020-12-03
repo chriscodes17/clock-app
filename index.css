@@ -1,0 +1,385 @@
+* {
+  box-sizing: border-box;
+}
+
+/* LOADING SCREEN */
+.loader-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #E4F5FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.square-spinner {
+  width: 55px;
+  display: block;
+  background-color: #03a9f4;
+  height: 55px;
+  -webkit-animation: 3s rotate2 ease-in-out infinite;
+  animation: 3s flip ease-in-out infinite;
+}
+.main-content {
+  display: none;
+}
+
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+  }
+}
+
+@keyframes flip {
+  0% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+    transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+  }
+}
+/* ------------------- */
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+}
+
+/* CONTAINER */
+.container {
+  display: grid;
+  max-width: 85%;
+  margin: 0 auto;
+}
+.container-expand {
+  display: grid;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.clock-greet {
+  display: inline;
+}
+.clock-icon {
+  margin-right: 10px;
+}
+/* EXPAND LOGIC */
+.expand-box {
+  display: none;
+}
+.expand-appear {
+  display: block;
+}
+
+/* GRID AREA CONFIG */
+.quote-box {
+  /* border: 2px solid red; */
+  grid-area: qtbox;
+}
+.clock-box {
+  /* border: 2px blue solid; */
+  grid-area: clkbox;
+}
+.button-box {
+  grid-area: btnbox;
+}
+.expand-box {
+  grid-area: exbox;
+}
+.box-1 {
+  grid-area: box1;
+}
+.box-2 {
+  grid-area: box2;
+}
+
+/* EXPAND BUTTON */
+.btn-more {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 28px;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+}
+.btn-arrow {
+  transform: rotate(180deg);
+}
+.btn-arrow-up {
+  transform: rotate(0deg);
+}
+
+/* EXPAND SECTION */
+.expand-box {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  color: #303030;
+  padding: 1rem;
+}
+
+.quote-refresh:hover {
+  cursor: pointer;
+}
+
+/* MOBILE SCREENS */
+@media only screen and (min-width: 375px) {
+  body.day {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(./assets/mobile/bg-image-daytime.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+  body.night {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(./assets/mobile/bg-image-nighttime.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+  .container {
+    gap: 50px;
+    grid-template-rows: 1fr 1fr 0.3fr;
+    grid-template-areas:
+      "qtbox"
+      "clkbox"
+      "btnbox";
+  }
+  .container-expand {
+    grid-template-areas:
+      "box1"
+      "box2";
+  }
+
+  /* TEXT CONFIGS */
+  .quote-text {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .quote-author {
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+  .clock-greet {
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 4px;
+  }
+  .clock-time {
+    font-size: 100px;
+    margin: 0;
+  }
+  .abbrev {
+    font-size: 15px;
+    line-height: 28px;
+  }
+  .clock-location {
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 4px;
+  }
+  [class*="box-"] h1 {
+    font-size: 26px;
+    line-height: 24px;
+  }
+  [class*="box-"] p {
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 2px;
+  }
+  /* EXPAND BTN */
+  .btn-more {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 3.75px;
+  }
+  .btn-more:hover {
+    cursor: pointer;
+  }
+  .btn-arrow {
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+  }
+  .btn-arrow:hover {
+    opacity: 0.5;
+  }
+  .quote-refresh {
+    width: 20px;
+    height: 20px;
+    opacity: 90%;
+  }
+
+  .clock-icon {
+    width: 22.34px;
+    height: 24px;
+    top: 1px;
+  }
+}
+
+/* TABLET */
+@media (min-width: 550px) {
+  body.day {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(./assets/tablet/bg-image-daytime.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+  body.night {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(./assets/tablet/bg-image-nighttime.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+
+  .container {
+    grid-template-rows: 1fr 1fr 0.3fr;
+    grid-template-areas:
+      "qtbox"
+      "clkbox"
+      "btnbox";
+  }
+  .container-expand {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 50px;
+    grid-template-areas:
+      "box1 box1 box2 box2"
+      "box1 box1 box2 box2";
+  }
+}
+
+/* LARGE SCREENS */
+@media only screen and (min-width: 768px) {
+  body.day {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(./assets/desktop/bg-image-daytime.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+  body.night {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(./assets/desktop/bg-image-nighttime.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+  .container {
+    /* gap: 75px; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "qtbox qtbox qtbox ."
+      "clkbox clkbox . btnbox"
+      "exbox exbox exbox exbox";
+  }
+  .container-expand {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "box1 box1 box2 box2"
+      "box1 box1 box2 box2";
+  }
+  .button-box {
+    align-self: end;
+  }
+  .button-box button {
+    margin-bottom: 22px;
+  }
+
+  /* TEXT CONFIGS */
+  .quote-text {
+    font-size: 18px;
+    line-height: 28px;
+    /* display: inline; */
+  }
+  .clock-time {
+    font-size: 150px;
+    margin: 0;
+  }
+  .abbrev {
+    font-size: 40px;
+    line-height: 28px;
+  }
+  .clock-greet {
+    font-size: 20px;
+    letter-spacing: 6px;
+    line-height: 28px;
+  }
+
+  .btn-more {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 5px;
+  }
+  .btn-more:hover {
+    cursor: pointer;
+  }
+  .btn-arrow {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+  .btn-arrow:hover {
+    opacity: 0.5;
+  }
+
+  /* EXPAND FONT CONFIG */
+  .box-2 {
+    padding-left: 1.5rem;
+    box-shadow: -8px 0px 10px 0px #b3b3b3;
+  }
+  [class*="box-"] h1 {
+    font-size: 56px;
+    line-height: 67px;
+  }
+  [class*="box-"] p {
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: 4px;
+  }
+
+  .clock-icon {
+    width: 22.34px;
+    height: 24px;
+    top: 2px;
+    left: 0.03px;
+  }
+}
+
